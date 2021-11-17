@@ -1,0 +1,31 @@
+nav{
+    background-color: #fff;
+}
+
+nav .nav-item{
+    font-size: 18px;
+    border-bottom: 1px solid #fff;
+}
+
+nav .nav-item .nav-link{
+    color: #000;  
+}
+
+nav .nav-item:hover{
+    border-bottom: 1px solid #000;
+}
+
+nav .navbar-login{
+    background-color: #000;
+    border-radius: 20px;
+    border: 1px solid #000;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    min-width: 100px;
+    font-weight: bold;
+}
+
+nav .navbar-login:hover{
+    background-color: transparent;
+    color: #000;
+}
