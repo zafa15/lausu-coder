@@ -1,10 +1,11 @@
 import './NavBar.css';
+import CartWidget from './CartWidget';
 
 const NavBar = () => {
     return (
         <nav className="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark">
             <div className="container-fluid">
-                <a className="logo text-uppercase" href="#">
+                <a className="logo text-uppercase" href="/#" onClick={(e) => e.preventDefault()}>
                         <img src="https://lausutec.com/wp-content/uploads/2021/05/lausutec-svg.svg" alt="" className="logo-light" height="40" />
                 </a>
 
@@ -14,19 +15,22 @@ const NavBar = () => {
                     <div className="collapse navbar-collapse" id="navbarCollapse">
                         <ul className="navbar-nav mx-auto navbar-center" id="mySidenav">
                             <li className="nav-item active">
-                                <a href="#" className="nav-link">Inicio</a>
+                                <a href="#Inicio" className="nav-link">Inicio</a>
                             </li>
                             <li className="nav-item">
-                                <a href="#" className="nav-link">Nosotros</a>
+                                <a href="#Nosotros" className="nav-link">Nosotros</a>
                             </li>
                             <li className="nav-item">
-                                <a href="#" className="nav-link">Contacto</a>
+                                <a href="#Contacto" className="nav-link">Contacto</a>
                             </li>
                             <li className="nav-item">
-                                <a href="#" className="nav-link">Productos</a>
+                                <a href="#Productos" className="nav-link">Productos</a>
                             </li>
                         </ul>
-                        <button className="btn navbar-btn navbar-login">Login</button>
+                        <div className="">
+                            <button className="btn navbar-btn navbar-login">Login</button>
+                            <CartWidget count={5}/>
+                        </div>
                     </div>
             </div>
         </nav>
