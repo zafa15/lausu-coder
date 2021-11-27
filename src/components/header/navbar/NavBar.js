@@ -27,7 +27,7 @@ const NavBar = () => {
                                 <a href="#Productos" className="nav-link">Productos</a>
                             </li>
                         </ul>
-                        <div className="">
+                        <div className="d-flex justify-content-center">
                             <button className="btn navbar-btn navbar-login">Login</button>
                             <CartWidget count={5}/>
                         </div>

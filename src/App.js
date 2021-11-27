@@ -1,7 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/header/navbar/NavBar';
 import ItemListContainer from './components/header/navbar/ItemListContainer';
+import ItemCount from './components/ItemCount';
 
 const items = [
   {
@@ -17,15 +17,10 @@ const items = [
 function App() {
   return (
     <div className="App">
-      <header className='App-header'>
-        <NavBar />
-      </header>
-      <div className='container'>
-        <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Hola Mundo, este es mi aplicación en ReactJS
-        </p>
+      <NavBar />
+      <div className='container mt-5'>
         <ItemListContainer greeting={items}/>
+        <ItemCount stock={15} initial={1}/>
       </div>
     </div>
   );

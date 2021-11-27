@@ -1,0 +1,13 @@
+button.btn-counters{
+    -webkit-appearance: none;
+    border: 0px;
+    font-weight: bold;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 8px 12px;
+}
+
+button.btn-counters:disabled{
+    background-color: #cccccc;
+}

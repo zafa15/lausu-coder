@@ -47,8 +47,13 @@ nav .cart-icon .number-cart{
     font-weight: bold;
 }
 
+
 @media(max-width:995px){
     nav .nav-item:hover{
         background-color: #f4f4f4;
     }
+}
+
+@media(max-width:600px){
+
 }
