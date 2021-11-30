@@ -9,7 +9,7 @@ const ItemCount = ({stock, initial}) => {
     const [count,setCount] = useState(initial);
     
     const addCount = () => {
-        if(count >= 15){
+        if(count >= stock){
             setActiveAdd(true)
         }else{
             setCount(count + 1);
@@ -35,7 +35,7 @@ const ItemCount = ({stock, initial}) => {
                 <div className="row">
                     <div className="col-lg-3"><button className="btn-counters" disabled={count > 1 ? false :activeSub} type="button" onClick={() => subCount()}>-</button></div>
                     <div className="col-lg-6">{count}</div>
-                    <div className="col-lg-3"><button className="btn-counters" disabled={count < 15 ? false : activeAdd} type="button" onClick={() => addCount()}>+</button></div>
+                    <div className="col-lg-3"><button className="btn-counters" disabled={count < stock ? false : activeAdd} type="button" onClick={() => addCount()}>+</button></div>
                 </div>
             </div>
         </div>

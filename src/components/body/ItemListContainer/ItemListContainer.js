@@ -1,5 +1,7 @@
-const ItemListContainer = ({greeting}) =>{
-    console.log(greeting)
+import ItemList from "../ItemList/ItemList"
+
+const ItemListContainer = () =>{
+    /*
     return (
         <div className="item--list">
             <ul>
@@ -15,6 +17,13 @@ const ItemListContainer = ({greeting}) =>{
             </ul>
         </div>
     )
+    */
+   return (
+       <div className="item--list">
+           <ItemList />
+       </div>
+   )
+
 }
 
 export default ItemListContainer
