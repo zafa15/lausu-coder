@@ -1,0 +1,35 @@
+.item--card h3, .item--card p, .item--card h2, .item--card h4, .item--card h5{
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+button.btn-counters{
+    -webkit-appearance: none;
+    border: 0px;
+    font-weight: bold;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 8px 12px;
+    width: 100%;
+}
+
+button.btn-counters:disabled{
+    background-color: #cccccc;
+}
+
+button.btn-add-item{
+    -webkit-appearance: none;
+    border: 0px;
+    padding: 1rem;
+    background-color: #000;
+    border:1px solid #000;
+    color: #fff;
+    width: 100%;
+    font-size: 14px;
+}
+
+button.btn-add-item:hover{
+    background-color: #fff;
+    color: #000;
+}
+
