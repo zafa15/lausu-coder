@@ -1,4 +1,4 @@
-import { useState } from 'react';
+/* import { useState } from 'react'; */
 import './Item.css'
 
 const Item = ({elements}) =>{
@@ -28,16 +28,16 @@ const Item = ({elements}) =>{
     }
 
     return (
-        <div className="col-lg-4 col-md-6 col-sm-12">
+        <div className="col-lg-4 col-md-6 col-sm-12 mb-3">
             <div className="card item--card">
                 <div className="card-body">
                     <div className="item--media">
                         <center>
-                            <img src={elements.img_url} alt={elements.name}/>
+                            <img src={elements.thumbnail} alt={elements.title}/>
                         </center>
                     </div>
                     <div className="item--detail mt-3" align="left">
-                        <h4 className="mt-0 mb-2"><strong>{elements.name}</strong></h4>
+                        <h4 className="mt-0 mb-2"><strong>{elements.title}</strong></h4>
                         <p className="mt-0">{elements.description}</p>
                     </div>
                     {/* <div className="item--count mb-3">
@@ -52,7 +52,8 @@ const Item = ({elements}) =>{
                         </div>
                     </div> */}
                     <div className="item--add">
-                        <button type="button" className="btn btn-add-item" onClick={() => onAdd()}>
+                        <a href="#" className="go-to-detail"><u>Ver Detalle</u></a>
+                        <button type="button" className="btn btn-add-item mt-3" onClick={() => onAdd()}>
                             <i className="mdi mdi-cart-outline mr-2"></i>Agregar al carrito
                         </button>
                     </div>
