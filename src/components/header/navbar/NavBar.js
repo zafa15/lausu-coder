@@ -15,7 +15,7 @@ const NavBar = () => {
                     <div className="collapse navbar-collapse" id="navbarCollapse">
                         <ul className="navbar-nav mx-auto navbar-center" id="mySidenav">
                             <li className="nav-item active">
-                                <a href="#Inicio" className="nav-link">Inicio</a>
+                                <a href="/" className="nav-link">Inicio</a>
                             </li>
                             <li className="nav-item">
                                 <a href="#Nosotros" className="nav-link">Nosotros</a>

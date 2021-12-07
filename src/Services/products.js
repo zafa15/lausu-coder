@@ -48,4 +48,13 @@ export const getItems = () => {
       },2000)
     })
   }
+
+  export const getItemById = (id) =>{
+    return new Promise((resolve,reject) => {
+      const item = obj.find(e => parseInt(e.id) === parseInt(id))
+      setTimeout(() => {
+        resolve(item)
+      },1000)
+    })
+  }
   

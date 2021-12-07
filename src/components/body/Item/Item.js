@@ -1,5 +1,6 @@
 /* import { useState } from 'react'; */
 import './Item.css'
+import { Link } from 'react-router-dom';
 
 const Item = ({elements}) =>{
 
@@ -13,15 +14,15 @@ const Item = ({elements}) =>{
                 <div className="card-body">
                     <div className="item--media">
                         <center>
-                            <img src={elements.thumbnail} alt={elements.title}/>
+                            <img src={elements.img_url} alt={elements.name}/>
                         </center>
                     </div>
-                    <div className="item--detail mt-4" align="left">
-                        <h4 className="mt-0 mb-3"><strong>{elements.title}</strong></h4>
+                    <div className="item--detail mt-4 mb-3" align="left">
+                        <h4 className="mt-0 mb-3"><strong>{elements.name}</strong></h4>
                         <p className="mt-0 mb-0">{elements.description}</p>
                     </div>
                     <div className="item--add">
-                        <a href="view-detail.php" className="go-to-detail"><u>Ver Detalle</u></a>
+                        <Link to={`/detail/${elements.id}`} className="go-to-detail"><u>Ver Detalle</u></Link>
                         <button type="button" className="btn btn-add-item mt-3" onClick={() => onAdd()}>
                             <i className="mdi mdi-cart-outline mr-2"></i>Agregar al carrito
                         </button>

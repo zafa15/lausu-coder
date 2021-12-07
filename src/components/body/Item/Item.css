@@ -24,12 +24,12 @@ button.btn-add-item:hover{
 }
 
 .item--media img{
-    height: 100px;
+    height: 150px;
     width: auto;
 }
 
 .item--detail h4{
-    min-height: 110px;
+    min-height: 50px;
     line-height: 1.2em;
 }
 
