@@ -1,31 +1,42 @@
 import ItemList from "../ItemList/ItemList"
- import { getItems } from "../../../Services/products"
+ import { getItems, getItemsByCategoryId } from "../../../Services/products"
+ import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 
 const ItemListContainer = () =>{
+    const {categoryId} = useParams();
+    //console.log(categoryId);
 
     const [products, setProducts] = useState([])
-    useEffect(()=>{
-        /* fetch('https://api.mercadolibre.com/sites/MLA/search?q=apple')
-        .then(response => {
-            return response.json()
-        }).then(res => {
-            setProducts(res.results.slice(0,24))
-        }).catch(err => {
-            console.log(err)
-        }) */
 
-        const data = getItems()
-        data.then(r => {
-            setProducts(r)
-        }).catch(err => {
-            console.log(err)
-        })
+    useEffect(()=>{
+
+        (async () =>{
+            if(categoryId!== undefined){
+                const data = getItemsByCategoryId(categoryId);
+                //console.log(data)
+                data.then(r => {
+                    setProducts(r)
+                }).catch(err => {
+                    console.log(err)
+                })
+
+            }else{
+                const data = getItems();
+                //console.log(data)
+                data.then(r => {
+                    setProducts(r)
+                }).catch(err => {
+                    console.log(err)
+                })
+            }
+        })()
 
         return (() => {
             setProducts([])
         })
-    },[])
+    },[categoryId]) 
+
    return (
        <div className="item--list">
            <ItemList data={products} />

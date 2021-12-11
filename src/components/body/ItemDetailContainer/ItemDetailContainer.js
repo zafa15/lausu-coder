@@ -1,24 +1,27 @@
 import { useEffect } from "react";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 import { useState } from "react/cjs/react.development"
-import { getItem, getItemById } from "../../../Services/products";
+import { getItemById } from "../../../Services/products";
 import ItemDetail from "../ItemDetail/ItemDetail"
 
 const ItemDetailContainer = () => {
 
     const [product,setProduct] = useState({});
-    /*
-    const data = getItem()
-    data.then(r => {
-        setProduct(r)
-    }) */
-    const {productId} = useParams();
-    console.log(productId)
-    /* useEffect(() =>{
-        return () => {
-            setProduct({})
-        }
-    },[productId]) */
+    const {paramId} = useParams()
+    console.log(paramId);
+
+    useEffect(() => {
+        getItemById(paramId).then(item =>{
+            console.log(item);
+            setProduct(item);
+        }).catch(err => {
+            console.log(err);
+        })
+
+        return (()=>{
+            setProduct()
+        })
+    },[paramId])
 
     return (
         <div className="content__detail-item">

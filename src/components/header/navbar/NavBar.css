@@ -11,7 +11,7 @@ nav .nav-item .nav-link{
     color: #000;  
 }
 
-nav .nav-item:hover{
+nav .nav-link:hover{
     border-bottom: 1px solid #000;
 }
 
@@ -45,6 +45,10 @@ nav .cart-icon .number-cart{
     margin-left: 0.5rem;
     font-size: 16px;
     font-weight: bold;
+}
+
+nav .nav-link.nav-active{
+    border-bottom: 1px solid #000;
 }
 
 

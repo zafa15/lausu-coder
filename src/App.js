@@ -4,7 +4,7 @@ import ItemListContainer from './components/Body/ItemListContainer/ItemListConta
 import ItemDetailContainer from './components/Body/ItemDetailContainer/ItemDetailContainer';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
@@ -14,8 +14,11 @@ function App() {
             <Route exact path='/'>
               <ItemListContainer/>
             </Route>
-            <Route path='/detail'>
+            <Route path='/item/:paramId'>
               <ItemDetailContainer/>
+            </Route>
+            <Route path='/category/:categoryId'>
+              <ItemListContainer/>
             </Route>
           </Switch>
         </div>
