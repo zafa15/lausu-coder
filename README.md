@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Documentación de Ayuda
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto es fue iniciado dentro del curso de ReactJS de Coderhouse
 
-## Available Scripts
+## Antes Ejecutar
 
-In the project directory, you can run:
+El proyecto depende de muchas librerías externas para diferentes usos, es por eso que antes de ejecutar se te mencionará
+lo que debes de tomar en cuenta:
+
+### `npm install`
+Una ves optenido el paquete, debemos ejecutar este comando mencionado dentro del proyecto para así descargar las dependencias y librerías que se usarán.
+
+## Para Ejecutar
 
 ### `npm start`
+Al momento de ejecutar el comando mencionado, este se correrá inmediatamente, compilando todo tus archivos.
+Se activará un servidor local en la cual estará almacenado en: [http://localhost:3000](http://localhost:3000), esta puedes observarlo en cualquier navegador.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Funciones de Consumo
+Dentro de la dirección "Services/products.js", podrás encontrar la data local de uso para el desarrollo de este software. Tener en cuenta también las funcionalidades que existen:
+- getItems
+- getItem
+- getItemById
+- getCategories
+- getItemsByCategoryId
 
-### `npm test`
+### `getItems`
+Dentro de esta función, puedes obtener todos los items pertenecientes del objeto de Productos.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `getItem`
+Con esta función se obtiene el item en específico, declarando estáticamente le identificador del que deseas.
 
-### `npm run build`
+### `getItemById`
+Con esta función se obtiene el item consultado por el "id" solicitado, esto hace que la consulta sea dinámico.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `getCategories`
+Dentro de esta función podrás obtener todos los items almacenados en el objeto de las Categorías.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `getItemsByCategoryId`
+Dentro de esta función podrás obtener todos los items almacenados en el objeto de los Productos que pertenescan a la misma categoría enviada en los parámentros.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Arquitectura de Componentes
+Dentro de la carpeta de "components" tendremos armada la siguiente estructura:
+- Header
+    - CartWidget 
+    - NavBar
+- Body
+    - Item
+    - ItemCount
+    - ItemDetail
+    - ItemDetailContainer
+    - ItemList
+    - ItemListContainer
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Cabe recalcar que dentro de cada carpeta se encuentan los JS y CSS de cada componente, a excepción de las carpetas "Header y Body" que son solo carpetas contenedoras.
