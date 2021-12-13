@@ -119,12 +119,7 @@ export const getCategories = () => {
 
 export const getItemsByCategoryId = (name) => {
   return new Promise((resolve,reject) => {
-    const items = [];
-    obj.map((e) => {
-      if(e.category_name === name){
-        items.push(e);
-      }
-    });
+    const items = obj.filter(e => e.category_name === name);
     setTimeout(() => {
       resolve(items);
     }, 1000);
