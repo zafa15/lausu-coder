@@ -3,12 +3,17 @@ import { useParams } from "react-router-dom";
 import { useState } from "react/cjs/react.development"
 import { getItemById } from "../../../Services/products";
 import ItemDetail from "../ItemDetail/ItemDetail"
+/* import { CartContext } from "../../../context/cartContext";
+import { useContext } from "react"; */
 
 const ItemDetailContainer = () => {
 
     const [product,setProduct] = useState({});
     const {paramId} = useParams()
-    console.log(paramId);
+    /* const datosContext = useContext(CartContext);
+    console.log(datosContext); */
+
+    //console.log(paramId);
 
     useEffect(() => {
         getItemById(paramId).then(item =>{

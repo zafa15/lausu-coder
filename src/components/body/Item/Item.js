@@ -2,10 +2,16 @@
 import './Item.css'
 import { Link } from 'react-router-dom';
 
+import NotificationContext from '../../../context/NotificationContext'
+import { useContext } from 'react';
+
 const Item = ({elements}) =>{
+
+    const {setNotification} = useContext(NotificationContext)
 
     const onAdd = () => {
         console.log('Hola');
+        setNotification('success','Agregado al carrito')
     }
 
     return (
