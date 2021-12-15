@@ -2,6 +2,7 @@
 import './ItemDetail.css';
 import ItemCount from "../ItemCount/ItemCount";
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 /* const InputCount = ({onConfirm, maxQuantity}) =>{
     const [count,setCount] = useState(0);
@@ -48,15 +49,18 @@ const ButtonCount = ({onConfirm,maxQuantity}) => {
 const ItemDetail = ({data}) => {
 
     //const Count = inputType === 'input' ? InputCount : ButtonCount
+    const [valid,setValid] = useState(0);
 
     const addToCart = (count) => {
-        console.log(`Agregado al carrito ${count}`);
+        console.log(`La canditdad es ${count}`);
+
+        setValid(count)
     }
 
 
     return (
         <div className="item--detail card p-3">
-            <div className="row">
+            <div className="row align-items-center">
                 <div className="col-lg-4 col-sm-12">
                     <img src={data?.img_url} alt={data?.name}/>
                 </div>
@@ -67,14 +71,14 @@ const ItemDetail = ({data}) => {
                         <p className="mt-0 mb-3">{data?.description}</p>
                         <h3 className="mt-0 mb-3">Precio: <strong>S/ <span>{data?.price_total}</span></strong></h3>
                         </div>
-                        <Link className="mb-3" to={`/cart`}>Ir a ver el Carrito</Link>
-                        <ItemCount onConfirm={addToCart} maxQuantity={data?.stock}/>
-                        <button
-                            type="button"
-                            className="btn btn-add-item mt-3"
-                        >
-                            <i className="mdi mdi-cart-outline mr-2"></i>Agregar al carrito
-                        </button>
+                        {
+                            valid > 0 ? (
+                                <Link className="mb-3 go-to-cart" to={`/cart`}><u>Ir a ver el Carrito</u></Link>
+                            ) : (
+                                <ItemCount onConfirm={addToCart} maxQuantity={data?.stock}/>
+                            )
+                        }
+                        
                     </div>
                 </div>
             </div>
