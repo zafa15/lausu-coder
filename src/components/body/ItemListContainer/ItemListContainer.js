@@ -9,6 +9,10 @@ const ItemListContainer = () =>{
 
     const [products, setProducts] = useState([])
 
+    const onResize = () =>{
+        console.log('Cambio el tamaño de la ventana')
+    }
+
     useEffect(()=>{
 
         (async () =>{
@@ -31,6 +35,8 @@ const ItemListContainer = () =>{
                 })
             }
         })()
+
+        window.addEventListener('resize',onResize)
 
         return (() => {
             setProducts([])

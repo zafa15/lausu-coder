@@ -12,3 +12,19 @@ button.btn-counters{
 button.btn-counters:disabled{
     background-color: #cccccc;
 }
+
+.btn-add-item{
+    -webkit-appearance: none;
+    border: 0px;
+    padding: 1rem;
+    background-color: #000;
+    border:1px solid #000;
+    color: #fff;
+    width: 100%;
+    font-size: 14px;
+}
+
+.btn-add-item:hover{
+    background-color: #fff;
+    color: #000;
+}

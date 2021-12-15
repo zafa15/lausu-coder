@@ -7,7 +7,7 @@
 }
 
 
-button.btn-add-item{
+.btn-add-item{
     -webkit-appearance: none;
     border: 0px;
     padding: 1rem;
@@ -18,7 +18,7 @@ button.btn-add-item{
     font-size: 14px;
 }
 
-button.btn-add-item:hover{
+.btn-add-item:hover{
     background-color: #fff;
     color: #000;
 }
