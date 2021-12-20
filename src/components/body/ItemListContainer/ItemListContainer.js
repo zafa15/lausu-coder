@@ -2,10 +2,13 @@ import ItemList from "../ItemList/ItemList"
  import { getItems, getItemsByCategoryId } from "../../../Services/products"
  import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
+import Loader from '../../Loader/Loader'
 
 const ItemListContainer = () =>{
     const {categoryId} = useParams();
     //console.log(categoryId);
+
+    const [loading, setLoading] = useState(false)
 
     const [products, setProducts] = useState([])
 
@@ -21,6 +24,7 @@ const ItemListContainer = () =>{
                 //console.log(data)
                 data.then(r => {
                     setProducts(r)
+                    setLoading(true)
                 }).catch(err => {
                     console.log(err)
                 })
@@ -30,6 +34,7 @@ const ItemListContainer = () =>{
                 //console.log(data)
                 data.then(r => {
                     setProducts(r)
+                    setLoading(true)
                 }).catch(err => {
                     console.log(err)
                 })
@@ -45,7 +50,9 @@ const ItemListContainer = () =>{
 
    return (
        <div className="item--list">
-           <ItemList data={products} />
+           {
+               loading ? <ItemList data={products} /> : <Loader />
+           }
        </div>
    )
 

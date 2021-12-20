@@ -1,0 +1,8 @@
+.alert{
+    cursor: pointer !important;
+    max-width: 400px;
+    position: fixed;
+    right: 42px;
+    top: 65px;
+    z-index: 99;
+}

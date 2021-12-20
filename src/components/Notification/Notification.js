@@ -1,3 +1,4 @@
+import './Notification.css'
 import { useContext } from "react"
 import NotificationContext from '../../context/NotificationContext'
 
@@ -8,7 +9,7 @@ const Notification = () => {
     }
 
     return(
-        <div style={{color:notification.severity === 'error' ? 'red' : 'green'}} onClick={() => setNotification('success','') }>
+        <div className={notification.severity === 'error' ? 'alert alert-danger' : 'alert alert-success'} onClick={() => setNotification('success','') }>
             {notification.message}
         </div>
     )
