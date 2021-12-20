@@ -14,7 +14,7 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         getItemById(paramId).then(item =>{
-            console.log(item);
+            //console.log(item);
             setProduct(item);
             setLoading(true)
         }).catch(err => {

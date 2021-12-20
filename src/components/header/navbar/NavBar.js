@@ -51,7 +51,7 @@ const NavBar = () => {
                         </ul>
                         <div className="d-flex justify-content-center">
                             <button className="btn navbar-btn navbar-login">Login</button>
-                            <CartWidget count={5}/>
+                            <CartWidget/>
                         </div>
                     </div>
             </div>

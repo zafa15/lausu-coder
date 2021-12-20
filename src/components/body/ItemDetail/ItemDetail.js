@@ -4,7 +4,9 @@ import ItemCount from "../ItemCount/ItemCount";
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useContext } from 'react';
-import NotificationContext from '../../../context/NotificationContext'
+import NotificationContext from '../../../context/NotificationContext';
+import CartContext from '../../../context/CartContext';
+
 
 
 const ItemDetail = ({data}) => {
@@ -12,9 +14,15 @@ const ItemDetail = ({data}) => {
     //const Count = inputType === 'input' ? InputCount : ButtonCount
     const [valid,setValid] = useState(0);
     const {setNotification} = useContext(NotificationContext);
+    const {addItem} = useContext(CartContext);
 
     const addToCart = (count) => {
+        const quantity_data = {quantity:count} 
+        const new_obj = {...data,...quantity_data}
+        console.log(new_obj);
+
         if(count>0){
+            addItem(new_obj,count);
             setNotification('success',`Agregado correctamente`);
         }else{
             setNotification('error',`No puede agregar 0 artículos`);

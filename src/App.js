@@ -6,6 +6,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 /* import { CartContext } from './context/cartContext'; */
 import Notification from './components/Notification/Notification'
 import { NotificationContextProvider } from './context/NotificationContext';
+import { CartContextProvider } from './context/CartContext';
 import Cart from './components/Body/Cart/Cart';
 
 const App = () => {
@@ -13,7 +14,7 @@ const App = () => {
     
     <div className="App">
       <NotificationContextProvider>
-        {/* <CartContext.Provider value={[]}> */}
+        <CartContextProvider>
           <BrowserRouter>
             <NavBar />
             <div className='container mt-5'>
@@ -34,7 +35,7 @@ const App = () => {
               </Switch>
             </div>
           </BrowserRouter>
-        {/* </CartContext.Provider> */}
+        </CartContextProvider>
       </NotificationContextProvider>
     </div>
   );
