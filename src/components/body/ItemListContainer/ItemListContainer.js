@@ -3,6 +3,8 @@ import ItemList from "../ItemList/ItemList"
  import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import Loader from '../../Loader/Loader'
+import { collection, getDocs, query, where} from 'firebase/firestore'
+import {db} from '../../../Services/firebase'
 
 const ItemListContainer = () =>{
     const {categoryId} = useParams();
@@ -20,24 +22,48 @@ const ItemListContainer = () =>{
 
         (async () =>{
             if(categoryId!== undefined){
-                const data = getItemsByCategoryId(categoryId);
+                /* const data = getItemsByCategoryId(categoryId);
                 //console.log(data)
                 data.then(r => {
                     setProducts(r)
                     setLoading(true)
                 }).catch(err => {
                     console.log(err)
-                })
+                }) */
+                getDocs(query(collection(db,'items'),where('category_name','==',categoryId))).then((querySnapshot) => {
+                    //console.log(querySnapshot);
+                    const products = querySnapshot.docs.map(doc => {
+                        //console.log(doc);
+                        return { id: doc.id, ...doc.data()}
+                    })
+                    setProducts(products);
+                }).catch((error)=>{
+                    console.log('Error searching item', error)
+                }).finally(()=>{
+                    setLoading(true);
+                });
 
             }else{
-                const data = getItems();
+                /* const data = getItems();
                 //console.log(data)
                 data.then(r => {
                     setProducts(r)
                     setLoading(true)
                 }).catch(err => {
                     console.log(err)
-                })
+                }) */
+                getDocs(collection(db,'items')).then((querySnapshot) => {
+                    //console.log(querySnapshot);
+                    const products = querySnapshot.docs.map(doc => {
+                        //console.log(doc);
+                        return { id: doc.id, ...doc.data()}
+                    })
+                    setProducts(products);
+                }).catch((error)=>{
+                    console.log('Error searching item', error)
+                }).finally(()=>{
+                    setLoading(true);
+                });
             }
         })()
 
