@@ -7,31 +7,22 @@ export const CartContextProvider = ({children}) => {
     const [list,setList] = useState([])
     const [total,setTotal] = useState(0);
 
-    const updateCounter = () => {
-        let counter = 0;
-        list.forEach((e) => {
-            counter = counter + e.quantity
-        });
-        setTotal(counter);
-    }
-
     const addItem = (item, quantity) => {
         const array_cart =  list;
         const valid = isInCart(item.id)
+        console.log(valid);
         if(!valid){
             array_cart.push(item);       
             setList(array_cart);
         }else{
-            const array_context = list.forEach((e) => {
-                    if(parseInt(e.id) === parseInt(item.id)){
-                        e.quantity = e.quantity + quantity
-                    }
-                });
-            setList(array_context);        
+            list.forEach((e) => {
+                if(parseInt(e.id) === parseInt(item.id)){
+                    e.quantity = e.quantity + quantity
+                }
+            });       
         }
+        console.log(list);
         updateCounter();
-        //window.localStorage.setItem('lausu_cart',JSON.stringify(list));
-        //console.log(total);
     }
 
     const removeItem = (itemId) => {
@@ -39,6 +30,7 @@ export const CartContextProvider = ({children}) => {
             return parseInt(e.id) !== parseInt(itemId)
         });
         setList(item);
+        console.log(list);
         updateCounter();
     }
 
@@ -47,22 +39,18 @@ export const CartContextProvider = ({children}) => {
     }
 
     const isInCart = (id) => {
-        const item = list.filter((e) => parseInt(e.id) === parseInt(id));
-        //console.log(item);
-        if(item.length > 0){
-            return true
-        }else{
-            return false
-        }
+        return list.some((e) => parseInt(e.id) === parseInt(id));
     }
 
-    const setListStorage = (list) => {
-        setList(list);
-    }
-
-    
-
-    
+    const updateCounter = () => {
+        let counter = 0;
+        console.log(list);
+        list.forEach((e) => {
+            counter += e.quantity
+        });
+        console.log(counter);
+        setTotal(counter);
+    }    
     
     return (
         <CartContext.Provider value={{
@@ -71,7 +59,6 @@ export const CartContextProvider = ({children}) => {
             addItem,
             removeItem,
             clear,
-            setListStorage,
             updateCounter,
             isInCart
         }}>
