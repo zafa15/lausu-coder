@@ -8,13 +8,13 @@ import Notification from './components/Notification/Notification'
 import { NotificationContextProvider } from './context/NotificationContext';
 /* import { CartContextProvider } from './context/CartContext'; */
 import Cart from './components/Body/Cart/Cart';
-import CartContext from './context/CartContext';
+/* import CartContext from './context/CartContext';
 import { useContext } from 'react/cjs/react.development';
-import { useEffect } from 'react';
+import { useEffect } from 'react'; */
 
 const App = () => {
 
-  const { setListStorage, updateCounter } = useContext(CartContext);
+  /* const { setListStorage, updateCounter } = useContext(CartContext);
 
   useEffect(()=>{
     const storage_cart = window.localStorage.getItem('lausu_cart')
@@ -22,10 +22,11 @@ const App = () => {
         const obj_storage_cart = JSON.parse(storage_cart);
         setListStorage(obj_storage_cart);
     }
-  },[]);
 
-  updateCounter()
-  
+    return (() => {
+      updateCounter()
+    })
+  },[]); */
   
   return (
     <div className="App">

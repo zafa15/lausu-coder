@@ -9,7 +9,7 @@ export const CartContextProvider = ({children}) => {
 
     const updateCounter = () => {
         let counter = 0;
-        list.map((e) => {
+        list.forEach((e) => {
             counter = counter + e.quantity
         });
         setTotal(counter);
@@ -22,7 +22,7 @@ export const CartContextProvider = ({children}) => {
             array_cart.push(item);       
             setList(array_cart);
         }else{
-            const array_context = list.map((e) => {
+            const array_context = list.forEach((e) => {
                     if(parseInt(e.id) === parseInt(item.id)){
                         e.quantity = e.quantity + quantity
                     }
@@ -30,7 +30,7 @@ export const CartContextProvider = ({children}) => {
             setList(array_context);        
         }
         updateCounter();
-        window.localStorage.setItem('lausu_cart',JSON.stringify(list));
+        //window.localStorage.setItem('lausu_cart',JSON.stringify(list));
         //console.log(total);
     }
 
