@@ -36,6 +36,7 @@ export const CartContextProvider = ({children}) => {
 
     const clear = () => {
         setList([]);
+        updateCounter();
     }
 
     const isInCart = (id) => {

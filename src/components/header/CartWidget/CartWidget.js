@@ -4,8 +4,12 @@ import CartContext from "../../../context/CartContext";
 
 const CartWidget = () =>{
     const {count} = useContext(CartContext);
+    console.log(count);
     return (
-        <Link to={`/cart`} className="cart-icon ml-3"><i className="mdi mdi-cart-outline"></i><span className="number-cart">{count}</span></Link>
+        <Link to={`/cart`} className="cart-icon ml-3">
+            <i className="mdi mdi-cart-outline"></i>
+            <span className="number-cart">{count}</span>
+        </Link>
     )
 }
 

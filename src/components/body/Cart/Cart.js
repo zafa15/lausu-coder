@@ -1,19 +1,26 @@
 import './Cart.css';
 import CartContext from '../../../context/CartContext';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { useState } from 'react/cjs/react.development';
+import { useEffect } from 'react/cjs/react.production.min';
 
 const Cart = () =>{
 
-    const {products} = useContext(CartContext)
-    const {removeItem} = useContext(CartContext)
+    const {products, removeItem, clear} = useContext(CartContext)
+  
     //console.log(products);
 
     return(
         <div className="box--cart mt-3">
             <h2 className="mb-3">Carrito de Compras</h2>
+            <div className='row mb-3'>
+                <div className='col-lg-12' align="right">
+                    <button type='button' className='btn btn-danger' onClick={()=>clear()}>Borrar Todo</button>
+                </div>
+            </div>
             <div className="row justify-content-center">
                 {
-                console.log(products),
                   products.length > 0 ? (
                     products.map(e => 
                         <div className="col-lg-12 mb-3" key={e.id}>
@@ -43,6 +50,9 @@ const Cart = () =>{
                             <h3>
                                 No se encontraron Productos dentro del Carrito :(
                             </h3>
+                            <h4 align="center">
+                                <Link to={`/`}><u>Ver más productos</u></Link>
+                            </h4>
                           </div>                          
                       </div>
                   )
