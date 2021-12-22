@@ -6,15 +6,30 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 /* import { CartContext } from './context/cartContext'; */
 import Notification from './components/Notification/Notification'
 import { NotificationContextProvider } from './context/NotificationContext';
-import { CartContextProvider } from './context/CartContext';
+/* import { CartContextProvider } from './context/CartContext'; */
 import Cart from './components/Body/Cart/Cart';
+import CartContext from './context/CartContext';
+import { useContext } from 'react/cjs/react.development';
+import { useEffect } from 'react';
 
 const App = () => {
+
+  const { setListStorage, updateCounter } = useContext(CartContext);
+
+  useEffect(()=>{
+    const storage_cart = window.localStorage.getItem('lausu_cart')
+    if(storage_cart!==null){
+        const obj_storage_cart = JSON.parse(storage_cart);
+        setListStorage(obj_storage_cart);
+    }
+  },[]);
+
+  updateCounter()
+  
+  
   return (
-    
     <div className="App">
       <NotificationContextProvider>
-        <CartContextProvider>
           <BrowserRouter>
             <NavBar />
             <div className='container mt-5'>
@@ -35,7 +50,6 @@ const App = () => {
               </Switch>
             </div>
           </BrowserRouter>
-        </CartContextProvider>
       </NotificationContextProvider>
     </div>
   );

@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {CartContextProvider} from './context/CartContext';
 
 ReactDOM.render(
-    <App />,
+  <CartContextProvider>
+    <App />
+  </CartContextProvider>,
   document.getElementById('root')
 );
 

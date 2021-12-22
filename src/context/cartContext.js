@@ -7,6 +7,14 @@ export const CartContextProvider = ({children}) => {
     const [list,setList] = useState([])
     const [total,setTotal] = useState(0);
 
+    const updateCounter = () => {
+        let counter = 0;
+        list.map((e) => {
+            counter = counter + e.quantity
+        });
+        setTotal(counter);
+    }
+
     const addItem = (item, quantity) => {
         const array_cart =  list;
         const valid = isInCart(item.id)
@@ -22,6 +30,7 @@ export const CartContextProvider = ({children}) => {
             setList(array_context);        
         }
         updateCounter();
+        window.localStorage.setItem('lausu_cart',JSON.stringify(list));
         //console.log(total);
     }
 
@@ -47,13 +56,13 @@ export const CartContextProvider = ({children}) => {
         }
     }
 
-    const updateCounter = () => {
-        let counter = 0;
-        list.map((e) => {
-            counter = counter + e.quantity
-        });
-        setTotal(counter);
+    const setListStorage = (list) => {
+        setList(list);
     }
+
+    
+
+    
     
     return (
         <CartContext.Provider value={{
@@ -62,6 +71,8 @@ export const CartContextProvider = ({children}) => {
             addItem,
             removeItem,
             clear,
+            setListStorage,
+            updateCounter,
             isInCart
         }}>
             {children}
