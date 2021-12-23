@@ -5,24 +5,23 @@ const CartContext = React.createContext();
 export const CartContextProvider = ({children}) => {
 
     const [list,setList] = useState([])
-    const [total,setTotal] = useState(0);
+    //const [total,setTotal] = useState(0);
 
     const addItem = (item, quantity) => {
-        const array_cart =  list;
+        const array_cart =  [...list];
         const valid = isInCart(item.id)
         console.log(valid);
         if(!valid){
             array_cart.push(item);       
             setList(array_cart);
         }else{
-            list.forEach((e) => {
+            array_cart.forEach((e) => {
                 if(parseInt(e.id) === parseInt(item.id)){
-                    e.quantity = e.quantity + quantity
+                    e.quantity += quantity
                 }
-            });       
+            });
+            setList(array_cart);     
         }
-        console.log(list);
-        updateCounter();
     }
 
     const removeItem = (itemId) => {
@@ -30,13 +29,10 @@ export const CartContextProvider = ({children}) => {
             return parseInt(e.id) !== parseInt(itemId)
         });
         setList(item);
-        console.log(list);
-        updateCounter();
     }
 
     const clear = () => {
         setList([]);
-        updateCounter();
     }
 
     const isInCart = (id) => {
@@ -49,14 +45,12 @@ export const CartContextProvider = ({children}) => {
         list.forEach((e) => {
             counter += e.quantity
         });
-        console.log(counter);
-        setTotal(counter);
+        return counter
     }    
     
     return (
         <CartContext.Provider value={{
             products: list,
-            count: total,
             addItem,
             removeItem,
             clear,

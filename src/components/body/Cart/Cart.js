@@ -2,13 +2,38 @@ import './Cart.css';
 import CartContext from '../../../context/CartContext';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react/cjs/react.development';
-import { useEffect } from 'react/cjs/react.production.min';
+/* import { useState } from 'react/cjs/react.development';
+import { useEffect } from 'react/cjs/react.production.min'; */
+import { db } from '../../../Services/firebase'
+import { collection, addDoc, doc, updateDoc, Timestamp, writeBatch } from 'firebase/firestore';
+
 
 const Cart = () =>{
 
     const {products, removeItem, clear} = useContext(CartContext)
-  
+
+
+    /* const confirmOrder = () =>{
+        const obj_send = {
+            buyer:{
+                name: 'name 2',
+                phone: '987654321',
+                email: 'name@test.com'
+            },
+            items:{
+                products
+            },
+            total: updateCounter(),
+            date: Timestamp.fromDate(new Date)
+        } */
+
+        /* addDoc(collection(db,'orders'),obj_send).then(({id}) => {
+            console.log(id);
+        }) */
+
+        //updateDoc(doc(db,'orders','qkeFXLvdaKUwMN6BwStV'),{total:1000})
+
+    //}
     //console.log(products);
 
     return(
@@ -17,6 +42,7 @@ const Cart = () =>{
             <div className='row mb-3'>
                 <div className='col-lg-12' align="right">
                     <button type='button' className='btn btn-danger' onClick={()=>clear()}>Borrar Todo</button>
+                    {/* <button type='button' className='btn btn-success' onClick={()=>confirmOrder()}>Confirmar Compra</button> */}
                 </div>
             </div>
             <div className="row justify-content-center">

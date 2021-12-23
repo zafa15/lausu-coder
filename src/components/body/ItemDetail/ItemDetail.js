@@ -19,7 +19,7 @@ const ItemDetail = ({data}) => {
     const addToCart = (count) => {
         const quantity_data = {quantity:count} 
         const new_obj = {...data,...quantity_data}
-        console.log(new_obj);
+        //console.log(new_obj);
 
         if(count>0){
             addItem(new_obj,count);
