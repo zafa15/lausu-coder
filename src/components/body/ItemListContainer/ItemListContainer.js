@@ -1,5 +1,5 @@
 import ItemList from "../ItemList/ItemList"
- import { getItems, getItemsByCategoryId } from "../../../Services/products"
+/*  import { getItems, getItemsByCategoryId } from "../../../Services/products" */
  import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import Loader from '../../Loader/Loader'
@@ -22,16 +22,15 @@ const ItemListContainer = () =>{
 
         (async () =>{
             if(categoryId!== undefined){
-                const data = getItemsByCategoryId(categoryId);
-                //console.log(data)
+                /* const data = getItemsByCategoryId(categoryId);)
                 data.then(r => {
                     setProducts(r)
                     setLoading(true)
                 }).catch(err => {
                     console.log(err)
-                })
+                }) */
 
-                /* getDocs(query(collection(db,'items'),where('category_name','==',categoryId))).then((querySnapshot) => {
+                getDocs(query(collection(db,'items'),where('category_name','==',categoryId))).then((querySnapshot) => {
                     const products = querySnapshot.docs.map(doc => {
                         return { id: doc.id, ...doc.data()}
                     })
@@ -40,19 +39,18 @@ const ItemListContainer = () =>{
                     console.log('Error searching item', error)
                 }).finally(()=>{
                     setLoading(true);
-                }); */
+                });
 
             }else{
-                const data = getItems();
-                //console.log(data)
+                /* const data = getItems();
                 data.then(r => {
                     setProducts(r)
                     setLoading(true)
                 }).catch(err => {
                     console.log(err)
-                })
+                }) */
 
-                /* getDocs(collection(db,'items')).then((querySnapshot) => {
+                getDocs(collection(db,'items')).then((querySnapshot) => {
                     const products = querySnapshot.docs.map(doc => {
                         return { id: doc.id, ...doc.data()}
                     })
@@ -61,7 +59,7 @@ const ItemListContainer = () =>{
                     console.log('Error searching item', error)
                 }).finally(()=>{
                     setLoading(true);
-                }); */
+                });
             }
         })()
 

@@ -2,19 +2,30 @@ import './NavBar.css';
 import CartWidget from '../CartWidget/CartWidget';
 import { Link, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getCategories } from '../../../Services/products';
+/* import { getCategories } from '../../../Services/products'; */
+import { db } from '../../../Services/firebase';
+import { collection, getDocs } from 'firebase/firestore';
 
 const NavBar = () => {
 
     const [category,setCategory] = useState([])
 
     useEffect(() =>{
-        const cat = getCategories()
+        getDocs(collection(db,'category')).then((querySnapshot) => {
+            //console.log(querySnapshot);
+            const categories = querySnapshot.docs.map(doc => {
+                return { id: doc.id, ...doc.data()}
+            });
+            setCategory(categories);
+        }).catch((error)=>{
+            console.log('Error searching Categories', error)
+        });
+        /* const cat = getCategories()
         cat.then(i => {
             setCategory(i)
         }).catch(error => {
             console.log(error) 
-        })
+        }) */
 
         return(()=>{
             setCategory([])
@@ -34,7 +45,7 @@ const NavBar = () => {
                     <div className="collapse navbar-collapse" id="navbarCollapse">
                         <ul className="navbar-nav mx-auto navbar-center" id="mySidenav">
                             <li className="nav-item" key={'all'}>
-                                <Link to={`/`} className="nav-link">Productos</Link>
+                                <Link to={`/`} className="nav-link">Todos</Link>
                             </li>
                             
                             {
@@ -50,7 +61,7 @@ const NavBar = () => {
                             }
                         </ul>
                         <div className="d-flex justify-content-center">
-                            <button className="btn navbar-btn navbar-login">Login</button>
+                            {/* <button className="btn navbar-btn navbar-login">Login</button> */}
                             <CartWidget/>
                         </div>
                     </div>

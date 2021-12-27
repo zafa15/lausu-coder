@@ -41,7 +41,7 @@ export const CartContextProvider = ({children}) => {
 
     const updateCounter = () => {
         let counter = 0;
-        console.log(list);
+        //console.log(list);
         list.forEach((e) => {
             counter += e.quantity
         });

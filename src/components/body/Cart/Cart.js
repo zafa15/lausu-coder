@@ -4,8 +4,8 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 /* import { useState } from 'react/cjs/react.development';
 import { useEffect } from 'react/cjs/react.production.min'; */
-import { db } from '../../../Services/firebase'
-import { collection, addDoc, doc, updateDoc, Timestamp, writeBatch } from 'firebase/firestore';
+/* import { db } from '../../../Services/firebase'
+import { collection, addDoc, doc, updateDoc, Timestamp, writeBatch } from 'firebase/firestore'; */
 
 
 const Cart = () =>{
@@ -53,7 +53,7 @@ const Cart = () =>{
                             <div className="card cart-item p-3">
                                 <div className="row align-items-center">
                                     <div className="col-lg-3 col-md-3 col-sm-3" align="center">
-                                        <img className='img-cart' src={e.img_url} />
+                                        <img className='img-cart' src={e.img_url} alt={e.name} />
                                     </div>
                                     <div className="col-lg-6 col-md-6 col-sm-6">
                                         <div align="left">
