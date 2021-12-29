@@ -12,7 +12,20 @@ button.btn-dark-delete{
     justify-content: center;
 }
 
+.cart-item{
+    border-bottom: 1px dashed #ccc;
+}
+
+/* .cart-item:last-child{
+    border-bottom: 0px;
+} */
+
 .cart-item img.img-cart{
-    width: 150px;
+    width: 120px;
     height: auto;
+}
+
+p.total-price{
+    font-size: 24px;
+    margin: 0px;
 }

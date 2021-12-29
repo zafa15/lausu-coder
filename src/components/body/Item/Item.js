@@ -2,17 +2,8 @@
 import './Item.css'
 import { Link } from 'react-router-dom';
 
-/* import NotificationContext from '../../../context/NotificationContext'
-import { useContext } from 'react'; */
-
 const Item = ({elements}) =>{
 
-    /* const {setNotification} = useContext(NotificationContext) */
-
-    /* const onAdd = () => {
-        console.log('Hola');
-        setNotification('success','Agregado al carrito')
-    } */
 
     return (
         <div className="col-lg-4 col-md-6 col-sm-12 mb-3">
@@ -26,6 +17,11 @@ const Item = ({elements}) =>{
                     <div className="item--detail mt-4 mb-3" align="left">
                         <h4 className="mt-0 mb-3"><strong>{elements.name}</strong></h4>
                         <p className="mt-0 mb-0">{elements.description}</p>
+                        {
+                            elements.stock === 0 ? (
+                                <p className='txt-danger mt-3 mb-0' align="center"><strong>No tenemos en Stock</strong></p>
+                            ) : ('')
+                        }
                     </div>
                     <div className="item--add">
                         <Link to={`/item/${elements.id}`} className="go-to-detail"><u>Ver Detalle</u></Link>

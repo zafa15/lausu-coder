@@ -11,14 +11,14 @@ import CartContext from '../../../context/CartContext';
 
 const ItemDetail = ({data}) => {
 
-    //const Count = inputType === 'input' ? InputCount : ButtonCount
     const [valid,setValid] = useState(0);
     const {setNotification} = useContext(NotificationContext);
     const {addItem} = useContext(CartContext);
 
     const addToCart = (count) => {
         const quantity_data = {quantity:count} 
-        const new_obj = {...data,...quantity_data}
+        const subtotal = {subtotal: count*data.price_total}
+        const new_obj = {...data,...quantity_data,...subtotal}
         //console.log(new_obj);
 
         if(count>0){
@@ -44,6 +44,11 @@ const ItemDetail = ({data}) => {
                         <h2 className="mt-0 mb-3">{data?.name}</h2>
                         <p className="mt-0 mb-3">{data?.description}</p>
                         <h3 className="mt-0 mb-3">Precio: <strong>S/ <span>{data?.price_total}</span></strong></h3>
+                        {
+                            data?.stock === 0 ? (
+                                <p className='txt-danger mt-0 mb-3'><strong>No tenemos en Stock</strong></p>
+                            ) : ('')
+                        }
                         </div>
                         {
                             valid > 0 ? (

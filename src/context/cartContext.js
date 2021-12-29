@@ -10,13 +10,13 @@ export const CartContextProvider = ({children}) => {
     const addItem = (item, quantity) => {
         const array_cart =  [...list];
         const valid = isInCart(item.id)
-        console.log(valid);
+        //console.log(valid);
         if(!valid){
             array_cart.push(item);       
             setList(array_cart);
         }else{
             array_cart.forEach((e) => {
-                if(parseInt(e.id) === parseInt(item.id)){
+                if(e.id === item.id){
                     e.quantity += quantity
                 }
             });
@@ -26,7 +26,7 @@ export const CartContextProvider = ({children}) => {
 
     const removeItem = (itemId) => {
         const item = list.filter((e) => {
-            return parseInt(e.id) !== parseInt(itemId)
+            return e.id !== itemId
         });
         setList(item);
     }
@@ -36,7 +36,7 @@ export const CartContextProvider = ({children}) => {
     }
 
     const isInCart = (id) => {
-        return list.some((e) => parseInt(e.id) === parseInt(id));
+        return list.some((e) => e.id === id);
     }
 
     const updateCounter = () => {
@@ -46,7 +46,16 @@ export const CartContextProvider = ({children}) => {
             counter += e.quantity
         });
         return counter
-    }    
+    }
+    
+    const getTotalPay = () =>{
+        let totalPrice = 0;
+        list.forEach((e)=>{
+            totalPrice += e.subtotal
+        });
+
+        return totalPrice
+    }
     
     return (
         <CartContext.Provider value={{
@@ -55,6 +64,7 @@ export const CartContextProvider = ({children}) => {
             removeItem,
             clear,
             updateCounter,
+            getTotalPay,
             isInCart
         }}>
             {children}

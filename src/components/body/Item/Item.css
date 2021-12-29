@@ -38,6 +38,10 @@
     color: #000;
 }
 
+.txt-danger{
+    color: #ec111a;
+}
+
 @media(max-width:765px){
     .item--detail h4{
         min-height: auto;
