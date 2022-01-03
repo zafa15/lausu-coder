@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useContext } from 'react';
 import NotificationContext from '../../../context/NotificationContext';
-import CartContext from '../../../context/CartContext';
+import CartContext from '../../../context/cartContext';
 
 
 

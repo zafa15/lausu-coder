@@ -1,11 +1,11 @@
 import './App.css';
-import NavBar from './components/Header/NavBar/NavBar';
-import ItemListContainer from './components/Body/ItemListContainer/ItemListContainer';
-import ItemDetailContainer from './components/Body/ItemDetailContainer/ItemDetailContainer';
+import NavBar from './components/header/NavBar/NavBar';
+import ItemListContainer from './components/body/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/body/ItemDetailContainer/ItemDetailContainer';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Notification from './components/Notification/Notification'
 import { NotificationContextProvider } from './context/NotificationContext';
-import Cart from './components/Body/Cart/Cart';
+import Cart from './components/body/Cart/Cart';
 
 
 const App = () => {
