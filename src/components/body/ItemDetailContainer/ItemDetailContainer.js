@@ -1,11 +1,10 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react/cjs/react.development"
-/* import { getItemById } from "../../../Services/products"; */
 import ItemDetail from "../ItemDetail/ItemDetail"
 import Loader from "../../Loader/Loader";
-import { db } from "../../../Services/firebase";
-import {getDoc, doc } from "firebase/firestore";
+import {getProductById} from '../../../Services/firebase';
+
 const ItemDetailContainer = () => {
 
     const [loading, setLoading] = useState(false);
@@ -14,17 +13,8 @@ const ItemDetailContainer = () => {
     const {paramId} = useParams()
 
     useEffect(() => {
-        /* getItemById(paramId).then(item =>{
-            //console.log(item);
-            setProduct(item);
-            setLoading(true)
-        }).catch(err => {
-            console.log(err);
-        }) */
-
-        getDoc(doc(db,'items',paramId)).then((querySnapshot) =>{
-            const product = {id: querySnapshot.id, ...querySnapshot.data()}
-            //console.log(product);
+        setLoading(false)
+        getProductById(paramId).then(product => {
             setProduct(product);
         }).catch((error) =>{
             console.log('Error searching item', error)
