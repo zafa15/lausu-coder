@@ -1,7 +1,6 @@
 import Item from "../Item/Item"
 
 const ItemList = ({ data }) => {
-    //console.log(data);
     return (
         <div className="row">
             {

@@ -11,7 +11,7 @@ import CompleteBuy from '../CompleteBuy/CompleteBuy';
 const Cart = () => {
 
     const [complete, setComplete] = useState(false);
-
+    const [keyOrder, setKeyOrder] = useState('');
     const { setNotification } = useContext(NotificationContext);
 
     const [name, setName] = useState('')
@@ -52,10 +52,9 @@ const Cart = () => {
 
             if (outOfStock.length === 0) {
                 addDoc(collection(db, 'orders'), obj_send).then(({ id }) => {
-                    //console.log(id);
                     batch.commit().then(() => {
-                        console.log('Se realizó la compra', id);
-                        setNotification('success', `Agregado correctamente`);
+                        setNotification('success', `Se agregó correctamente la orden`);
+                        setKeyOrder(id);
                     }).catch((error) => {
                         setNotification('error', `Error en ejecutar la orden`);
                         console.log('Error en ejecutar la orden', error);
@@ -83,7 +82,7 @@ const Cart = () => {
     return (
         <div className="box--cart mt-3">
             {
-                complete ? <CompleteBuy /> : (
+                complete ? <CompleteBuy order={keyOrder}/> : (
                     <div className='row'>
                         <div className='col-lg-8 col-md-12 col-sm-12'>
                             <div className='card p-4'>

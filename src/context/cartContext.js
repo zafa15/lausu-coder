@@ -5,12 +5,10 @@ const CartContext = React.createContext();
 export const CartContextProvider = ({children}) => {
 
     const [list,setList] = useState([])
-    //const [total,setTotal] = useState(0);
 
     const addItem = (item, quantity) => {
         const array_cart =  [...list];
         const valid = isInCart(item.id)
-        //console.log(valid);
         if(!valid){
             array_cart.push(item);       
             setList(array_cart);
@@ -41,7 +39,6 @@ export const CartContextProvider = ({children}) => {
 
     const updateCounter = () => {
         let counter = 0;
-        //console.log(list);
         list.forEach((e) => {
             counter += e.quantity
         });

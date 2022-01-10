@@ -6,7 +6,6 @@ import { getProducts } from "../../../Services/firebase"
 
 const ItemListContainer = () =>{
     const {categoryId} = useParams();
-    //console.log(categoryId);
 
     const [loading, setLoading] = useState(false)
 

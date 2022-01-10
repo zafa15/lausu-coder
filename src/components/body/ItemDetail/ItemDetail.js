@@ -19,7 +19,6 @@ const ItemDetail = ({data}) => {
         const quantity_data = {quantity:count} 
         const subtotal = {subtotal: count*data.price_total}
         const new_obj = {...data,...quantity_data,...subtotal}
-        //console.log(new_obj);
 
         if(count>0){
             addItem(new_obj,count);
@@ -36,7 +35,7 @@ const ItemDetail = ({data}) => {
         <div className="item--detail card p-3">
             <div className="row align-items-center">
                 <div className="col-lg-4 col-sm-12">
-                    <img src={data?.img_url} alt={data?.name}/>
+                    <img className='media-product' src={data?.img_url} alt={data?.name}/>
                 </div>
                 <div className="col-lg-8 col-sm-12" align="left">
                     <div className="p-3">

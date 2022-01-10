@@ -24,7 +24,7 @@ const NavBar = () => {
         <nav className="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark">
             <div className="container-fluid">
                 <Link className="logo text-uppercase" to={`/`}>
-                        <img src="https://lausutec.com/wp-content/uploads/2021/05/lausutec-svg.svg" alt="" className="logo-light" height="40" />
+                        <img src="https://scontent.flim10-1.fna.fbcdn.net/v/t1.6435-9/152351390_102233155254785_7448606761380941155_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=e3f864&_nc_ohc=BL8k41W9UnYAX-lITYT&tn=XoaAto2qE90GLvhx&_nc_ht=scontent.flim10-1.fna&oh=00_AT839JH8f-fc-nrPL0Pcjog-LP-_zoIxKwoLjCsKy7ZN2A&oe=6201BA97" alt="" className="logo-light" height="40" />
                 </Link>
 
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +49,6 @@ const NavBar = () => {
                             }
                         </ul>
                         <div className="d-flex justify-content-center">
-                            {/* <button className="btn navbar-btn navbar-login">Login</button> */}
                             <CartWidget/>
                         </div>
                     </div>

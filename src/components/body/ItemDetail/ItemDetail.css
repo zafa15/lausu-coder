@@ -35,3 +35,8 @@ button.btn-counters:disabled{
     font-size: 18px;
     font-weight: bold;
 }
+
+img.media-product{
+    width: 100%;
+    height: auto;
+}

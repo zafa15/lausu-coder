@@ -25,9 +25,6 @@ const Item = ({elements}) =>{
                     </div>
                     <div className="item--add">
                         <Link to={`/item/${elements.id}`} className="go-to-detail"><u>Ver Detalle</u></Link>
-                        {/* <button type="button" className="btn btn-add-item mt-3" onClick={() => onAdd()}>
-                            <i className="mdi mdi-cart-outline mr-2"></i>Agregar al carrito
-                        </button> */}
                     </div>
                 </div>
             </div>
