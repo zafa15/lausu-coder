@@ -81,10 +81,29 @@ Dentro de la carpeta de "components" tendremos armada la siguiente estructura:
 
 
 ## Context para el carrito de Compras
-Para mantener una burbuja de datos al carrito mientras se navega por la web, se utilizó a "cartContext.js" ubicado en la carpeta "context/", de igual manera para las notificaiones se utilizó el "NotificationContext.js" ubicado en la misma carpeta.
+Para mantener una burbuja de datos al carrito mientras se navega por la web, se utilizó a "cartContext.js" ubicado en la carpeta "./context/", de igual manera para las notificaiones se utilizó el "NotificationContext.js" ubicado en la misma carpeta.
 
 ### `CartContext.js`
+Dentro de este context podemos configurar las funciones y valores que tendrá el carrito globalmente. Dentro de estas encontramos:
+- addItem: Función por la cual podemos agregar un elemento al carrito.
+- removeItem: Función por la cual quitamos del carrito un elemento específico.
+- clear: Función para limpiar todo el carrito y mantenerlo vacío.
+- isInCart: Con esta función verificamos si el producto a verificar, existe o no dentro del carrito.
+- updateCounter: Con esta función verificamos que el contador que nos muestra se actualice cada ves que se presenta un cambio.
+- getTotalPay: Con esta funcion obtenemos el total a pagar del carrito.
 
+## Context para la Notificación
+Para mantener una funcionalidad global de notificaciones por las acciones a realizar, creamos un "context" llamado "NotificationContext.js". ubicado en la carpeta "./context/". Este context se asocia junto al component "Notification.js" para poder mostrar el tipo de mensaje y el mesanje mismo.
+
+## Proceso de Confirmar Carrito
+Dentro del proceso posterior a armar el carrito, al momento de enviar la confirmación se realiza unas validaciones para el stock y verificar si se logra realizar o no. Este proceso lo encontramos dento del componente "Cart.js"
+
+### `confirmOrder.js`
+Dentro de esta funcion, realizamos concretamente el desarrollo de:
+- Armar el objeto a registrar.
+- Primero verificamos que la cantidad que se solicita en el carrito no supere a la del stock. De acuerdo a la verificación se valida si se realiza o no.
+    - Utilizamos el "batch" de firebase para tener estos datos antes de realizar un update
+- Una ves todo est ok, se reliza un "commit" (otra funcionalidad de firebase) en la cual decimos que si se relices los cambios de update y agreguemos luego una orden nueva a la colección.
 
 
 Cabe recalcar que dentro de cada carpeta se encuentan los JS y CSS de cada componente, a excepción de las carpetas "Header y Body" que son solo carpetas contenedoras.
